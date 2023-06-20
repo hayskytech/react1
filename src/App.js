@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Menu from "./Menu";
+import Footer from './Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const x = 5
+	const y = 6
+	var fname = "Raju"
+
+	return (
+		<>
+
+			<Menu />
+
+			<h1>Hello world</h1>
+			<p>sakdg oasihasd7</p>
+
+			<h2>{x + y}</h2>
+
+			<h1>{fname}</h1>
+			<p>lorem100</p>
+			<hr />
+
+			<Footer/>
+		</>
+
+	);
 }
 
 export default App;
