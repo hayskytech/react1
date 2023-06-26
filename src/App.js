@@ -1,27 +1,26 @@
 import React, { useState } from 'react'
 import Calculator from './components/Calculator';
 import Student from './components/Student';
+import Table from './components/Table';
 
 function App() {
 
-	const data = [
-		{ name: "Ramesh", phone: "1111", town: "NDK" },
-		{ name: "Suresh", phone: "2222", town: "KNL" }
-	]
+	const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	
 
-
+	
 	return (
 		<>
-
-
-			{data.map((item) => (
-				<Student key={item.name} item={item} />
-			))}
-
-
+			<h1>Tables</h1>
+			
+			
+			{
+				data.map((item) => (
+					<Table key={item} n={item} />
+				))
+			}
 		</>
-
-	);
+	)
 }
 
 export default App;
