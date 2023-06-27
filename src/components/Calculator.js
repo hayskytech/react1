@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Calculator() {
+function Calculator2() {
 	const [x, setx] = useState(15)
 	const [y, sety] = useState(3)
 
@@ -26,4 +26,4 @@ function Calculator() {
 	)
 }
 
-export default Calculator
+export default Calculator2

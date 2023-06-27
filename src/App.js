@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import LoadTables from './components/LoadTables';
+import ShowHide from './pages/ShowHide';
+
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
 	
 	return (
 		<>
-			<LoadTables/>
+			<ShowHide/>
 			
 		</>
 	)

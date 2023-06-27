@@ -1,0 +1,8 @@
+.menu{
+	background-color: skyblue;
+	padding: 10px;
+	border: 1px solid;
+	display: flex;
+	justify-content: flex-start;
+	gap: 10px;
+}
