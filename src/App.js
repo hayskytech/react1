@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
-import ShowHide from './pages/ShowHide';
+import React from 'react'
+import Header from './school/Header'
+import Footer from './school/Footer'
+import StudentList from './student/StudentList'
 
+export default function App() {
 
-function App() {
-
-	
-	
-
-	
 	return (
-		<>
-			<ShowHide/>
-			
-		</>
+		<div>
+			<Header />
+
+			<StudentList />
+
+			<Footer />
+		</div>
 	)
 }
-
-export default App;
