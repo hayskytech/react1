@@ -1,0 +1,14 @@
+#newsitem {
+	display: 'inline-block';
+	width: 200;
+	border: '2px solid black';
+	margin: 5;
+	float: 'left';
+	height: 250
+}
+
+#newsitem img {
+	height: 150;
+	width: 100%;
+	object-fit: 'contain'
+}
