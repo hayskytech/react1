@@ -1,12 +1,12 @@
 import React from 'react'
-import Voting from './tools/Voting'
-import News from './tools/News'
+import CheckEqual from './tools/CheckEqual'
+import CatFacts from './tools/CatFacts'
 
 export default function App() {
 
 	return (
 		<div>
-			<News />
+			<CatFacts />
 		</div>
 	)
 }

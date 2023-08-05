@@ -14,7 +14,7 @@ export default function News() {
 		};
 
 		fetchData();
-	})
+	}, [])
 
 	return (
 		<div>
