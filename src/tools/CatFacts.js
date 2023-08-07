@@ -13,9 +13,7 @@ export default function CatFacts() {
 	return (
 		<div>
 			{
-				list.map((item) =>
-					<p>{item.text}</p>
-				)
+				list.map((item) => <p>{item.text}</p>)
 			}
 		</div>
 	)
