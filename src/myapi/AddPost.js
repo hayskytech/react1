@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
 
-export default function AddPost() {
+export default function AddPost(p) {
 	const [text, settext] = useState('')
 	const [text2, settext2] = useState('')
 	const [loading, setloading] = useState('')
@@ -27,6 +28,8 @@ export default function AddPost() {
 		const response = await fetch(url, requestOptions)
 		const json = await response.json()
 		setloading('Post added.')
+		p.setrefresh(true)
+		p.setbox(false)
 		settext('')
 		settext2('')
 	}
@@ -47,7 +50,8 @@ export default function AddPost() {
 					onChange={(e) => { settext2(e.target.value) }}
 					cols="30" rows="5"></textarea>
 
-				<button>ADD</button>
+
+				<div><Button variant='primary' onClick={handleSubmit}>ADD</Button></div>
 			</form>
 
 			{loading}
