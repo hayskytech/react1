@@ -9,8 +9,12 @@ export default function GetPosts() {
 	const [list, setList] = useState([])
 	const [box, setbox] = useState(false);
 	const [refresh, setrefresh] = useState(false)
+	const emptypost = { id: '', title: { rendered: '' }, content: '' }
+	const [postdata, setpostdata] = useState(emptypost)
+	const [del, setdel] = useState(false)
 
 	function handleClose() {
+		setpostdata(emptypost)
 		setbox(false);
 	}
 	function handleShow() {
@@ -19,13 +23,23 @@ export default function GetPosts() {
 
 	useEffect(() => {
 		async function loadposts() {
-			const response = await fetch('https://telugudunia-in.stackstaging.com/wp-json/wp/v2/posts?_fields=title')
+			const response = await fetch('https://telugudunia-in.stackstaging.com/wp-json/wp/v2/posts?_fields=id,title,content')
 			const jsonData = await response.json()
 			setList(jsonData)
 		}
 		loadposts()
 		setrefresh(false)
 	}, [refresh])
+
+	function handleEdit(item) {
+		setpostdata(item)
+		setbox(true)
+	}
+	function handleDelete(item) {
+		setpostdata(item)
+		setdel(true)
+		setbox(true)
+	}
 
 
 	return (
@@ -38,22 +52,33 @@ export default function GetPosts() {
 
 			<Modal show={box} onHide={handleClose}>
 				<Modal.Header closeButton>
-					<Modal.Title>Add new post</Modal.Title>
+					<Modal.Title>{Boolean(postdata.id) ? 'Edit' : 'Add'} new post</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<AddPost setrefresh={setrefresh} setbox={setbox} />
+
+					<AddPost
+						setrefresh={setrefresh}
+						setbox={setbox}
+						postdata={postdata}
+						setpostdata={setpostdata}
+						del={del}
+						setdel={setdel}
+					/>
+
+
 				</Modal.Body>
-				{/* <Modal.Footer>
-					<Button variant="secondary" onClick={handleClose}>Close</Button>
-					<Button variant="primary" onClick={handleClose}>Save Changes</Button>
-				</Modal.Footer> */}
 			</Modal>
 
 
 			<ol style={{ margin: 10, fontSize: 20 }}>
 				{
 					list.map((item, index) => {
-						return (<li key={index}>{item.title.rendered}</li>)
+						return (
+							<li key={index}>
+								<button onClick={() => { handleEdit(item) }}>Edit</button>
+								<button onClick={() => { handleDelete(item) }}>Delete</button>
+								{item.title.rendered}
+							</li>)
 					})
 				}
 			</ol>
