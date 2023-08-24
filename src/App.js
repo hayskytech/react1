@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import 'semantic-ui-css/semantic.min.css'
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom'
+import { Icon, Menu } from 'semantic-ui-react'
 
-import AddPost from './myapi/AddPost'
-import GetPosts from './myapi/GetPosts'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import Layout from './Layout'
 import CatFacts from './tools/CatFacts'
+import NoPage from './pages/NoPage';
+import TodoListLocal from './pages/TodoListLocal';
 
 export default function App() {
 
@@ -22,10 +23,46 @@ export default function App() {
 						<Route path="about" element={<About />} />
 						<Route path="contact" element={<Contact />} />
 						<Route path="catfacts" element={<CatFacts />} />
-						{/* <Route path="*" element={<NoPage />} /> */}
+						<Route path="todo" element={<TodoListLocal />} />
+						<Route path="*" element={<NoPage />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
+		</div>
+	)
+}
+
+function Layout() {
+	return (
+		<div>
+			<Menu compact inverted fluid icon='labeled' widths={5}>
+				<Menu.Item>
+					<Icon name='home' />
+					<Link to="/">Home</Link>
+				</Menu.Item>
+
+				<Menu.Item>
+					<Icon name='user' />
+					<Link to="/about">About</Link>
+				</Menu.Item>
+
+				<Menu.Item>
+					<Icon name='handshake' />
+					<Link to="/contact">Contact</Link>
+				</Menu.Item>
+
+				<Menu.Item>
+					<Icon name='paw' />
+					<Link to="/catfacts">CatFacts</Link>
+				</Menu.Item>
+
+				<Menu.Item>
+					<Icon name='list' />
+					<Link to="/todo">Todo List</Link>
+				</Menu.Item>
+			</Menu>
+
+			<Outlet />
 		</div>
 	)
 }
