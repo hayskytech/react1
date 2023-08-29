@@ -8,9 +8,9 @@ import { Icon, Menu } from 'semantic-ui-react'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import CatFacts from './tools/CatFacts'
 import NoPage from './pages/NoPage';
 import TodoListLocal from './pages/TodoListLocal';
+import Inpatients from './hospital/Inpatients';
 
 export default function App() {
 
@@ -22,7 +22,7 @@ export default function App() {
 						<Route index element={<Home />} />
 						<Route path="about" element={<About />} />
 						<Route path="contact" element={<Contact />} />
-						<Route path="catfacts" element={<CatFacts />} />
+						<Route path="hospital" element={<Inpatients />} />
 						<Route path="todo" element={<TodoListLocal />} />
 						<Route path="*" element={<NoPage />} />
 					</Route>
@@ -52,8 +52,8 @@ function Layout() {
 				</Menu.Item>
 
 				<Menu.Item>
-					<Icon name='paw' />
-					<Link to="/catfacts">CatFacts</Link>
+					<Icon name='building' />
+					<Link to="/hospital">Hospital</Link>
 				</Menu.Item>
 
 				<Menu.Item>
